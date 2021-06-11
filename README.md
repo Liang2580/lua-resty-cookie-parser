@@ -6,24 +6,30 @@ lua-resty-cookie-parser - Simple Cookie data parser for OpenResty/Lua
 Synopsis
 
 ```lua
-local json = require "cjson"
-local parser = require "cookie"
-local cookie =cookie_new:new()
-local cookie_list = cookie:getcookie()
-for i,v in ipairs(name) do
- ngx.say("== Cookie part ==")
-    ngx.say("name: [", json.encode(v), "]")
-end 
+local json=require "cjson"
+
+function return_message(status,msg)
+	ngx.header.content_type = "application/json;"
+	ngx.status = status
+	ngx.say(json.encode(msg))
+    ngx.exit(status)
+end
+
+function getAllCookie()
+    local parser = require "cookie"
+    local cookie =parser:new()
+    local cookie_list = cookie:getcookie()
+    return return_message(200,cookie_list)
+ end
 
 ```
 
 example Cookies
 ```php
-Cookie: serverType=ngin">< img src=x onerro=alert(`1x><img src=x; order=123121; memSize=7671; test=%7B%22
-```
+Cookie: serverTTTType=1' union select 1,23,--; order=12312; memSize=7671; test=%7B%22;  nbamea=111;rememberMe=11;ada=qweq;ada=11;id=111;id=22123131```
 return 
 ```php
-[{"serverType":"ngin\">< img src x onerro alert(`1x><img src x"},{" order":"123121"},{" memSize":"7671"},{" test":"%7B%22"}]
+{"order":"12312","id":"11122123131","nbamea":"111","serverttttype":"1' union select 1,23,--","ada":"qweq11","memsize":"7671","test":"{\"","rememberme":"11"}
 ```
 
 
