@@ -36,7 +36,7 @@ function _M.new()
    }, mt)
 end
 
-function _M.getcookie2(self)
+function _M.getcookie(self)
     local data = self.data
     local match_table = {}
     cookie_list=split2(data,';')
