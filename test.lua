@@ -8,8 +8,8 @@ function return_message(status,msg)
 end
 
 function getAllCookie()
-    local cookie_new=require "cookie"
-    local cookie =cookie_new:new()
-    local name = cookie:getcookie2()
-    return return_message(200,name)
+    local parser = require "cookie"
+    local cookie =parser:new()
+    local cookie_list = cookie:getcookie()
+    return return_message(200,cookie_list)
  end
