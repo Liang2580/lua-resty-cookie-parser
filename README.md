@@ -17,4 +17,16 @@ end
 
 ```
 
+example Cookies
+```php
+Cookie: serverType=ngin">< img src=x onerro=alert(`1x><img src=x; order=123121; memSize=7671; test=%7B%22
+```
+return 
+```php
+[{"serverType":"ngin\">< img src x onerro alert(`1x><img src x"},{" order":"123121"},{" memSize":"7671"},{" test":"%7B%22"}]
+```
+
+
+Optimize the problem of getting key and value exceptions in the case of multiple equal sign
+
 
