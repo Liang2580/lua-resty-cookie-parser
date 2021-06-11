@@ -1,4 +1,4 @@
-# -lua-resty-cookie-parser
+# lua-resty-cookie-parser
 lua-resty-cookie-parser - Simple Cookie data parser for OpenResty/Lua
 
 
