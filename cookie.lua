@@ -45,11 +45,14 @@ function _M.getcookie2(self)
         ret={}
         v_list=split2(v,'=')
         if arrlen(v_list)==1 then 
-            ret[v_list[1]]=''
-            table.insert(match_table,ret)
+            match_table[v_list[1]]=''
         else
-            ret[v_list[1]]=table.concat(v_list,' ',2)
-            table.insert(match_table,ret)
+            v_list[1]=string.lower(string.gsub(v_list[1], " ", ""))
+            if not match_table[v_list[1]] then 
+                match_table[v_list[1]]=ngx.unescape_uri(table.concat(v_list,' ',2))
+            else
+                match_table[v_list[1]]=match_table[v_list[1]]..ngx.unescape_uri(table.concat(v_list,' ',2))
+            end 
         end 
     end 
     return match_table
